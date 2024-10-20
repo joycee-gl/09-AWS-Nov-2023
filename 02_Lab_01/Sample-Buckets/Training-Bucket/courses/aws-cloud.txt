@@ -1,0 +1,6 @@
+Week-1
+	AWS Foundation - EC2, Security Groups, PEM, 
+	
+Week-2
+	EBS, EFS, S3
+	

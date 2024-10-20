@@ -1,0 +1,49 @@
+
+- EBS Volume
+  - EC2 Creation
+    - Name 
+      - GL-Lab-01-EC2
+    - Key Pair Name 
+      - lab-01
+    - Security Group Name 
+      - ec2-ssh-connect-sg
+  - Connect to EC2 Instance
+    - chmod 400 ./lab-01.pem
+    - ssh -i ./lab-01.pem ec2-user@3.92.176.91
+  - Configure EBS Volume [10 GB]
+    - sudo su
+    - lsblk
+    - file -s /dev/xvdf
+    - mkfs -t ext4 /dev/xvdf
+    - mkdir /ext-vol-1
+    - mount /dev/xvdf /ext-vol-1
+    - cd /ext-vol-1
+    - echo "A file with some sample content" >> ./sample.txt
+    - cat ./sample.txt
+    - umount /dev/xvdf
+  - Configure EBS Volume [15 GB]
+    - mkdir /ext-vol-1-15-gb
+    - mount /dev/xvdf /ext-vol-1-15-gb
+    - cd /ext-vol-1-15-gb
+
+- S3 Commands
+  - Commands
+    - Add Files
+      - aws s3 cp ./simple-mern-projects.txt s3://source-training-bucket-20-10-2024/projects/simple/
+      - aws s3 cp ./simple-web-projects.txt s3://source-training-bucket-20-10-2024/projects/simple/
+      - aws s3 cp ./complex-mern-projects.txt s3://source-training-bucket-20-10-2024/projects/complex/
+      - aws s3 cp ./complex-web-projects.txt s3://source-training-bucket-20-10-2024/projects/complex/
+    - Listing Objects
+      - aws s3 ls s3://source-training-bucket-20-10-2024
+      - aws s3 ls --recursive s3://source-training-bucket-20-10-2024
+      - aws s3 ls s3://source-training-bucket-20-10-2024/projects/
+    - Listing Buckets
+      - aws s3 ls
+    - Remove Objects
+      - aws s3 rm s3://source-training-bucket-20-10-2024/projects/simple/simple-mern-projects.txt
+      - aws s3 rm --recursive s3://source-training-bucket-20-10-2024/projects/
+  - Replication
+    - Replication Rule Name - All-Objects-Replicate
+    - Adding Files
+      - aws s3 cp ./aws-cloud.txt s3://source-training-bucket-20-10-2024/courses/
+      - aws s3 cp ./java-fsd.txt s3://source-training-bucket-20-10-2024/courses/

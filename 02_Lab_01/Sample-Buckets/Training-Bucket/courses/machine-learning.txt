@@ -1,0 +1,7 @@
+Week-1
+
+- Supervised and Un-Supervised Learning
+
+Week-2
+
+- Regression Algorithms
