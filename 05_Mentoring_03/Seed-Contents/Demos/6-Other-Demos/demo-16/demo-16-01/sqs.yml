@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Resources:
+  SqsQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: demo-sqs-queue
+      DelaySeconds: 0
+      Tags:
+        - Key: Name
+          Value: demo-sqs-queue
+        - Key: ProjectName
+          Value: Created from TaskCat
+
+Outputs:
+  SqsQueueURL:
+    Description: The URL of your Amazon SQS Queue
+    Value: !Ref SqsQueue
+
+  SqsQueueName:
+    Description: The name of your Amazon SQS Queue
+    Value: !GetAtt SqsQueue.QueueName

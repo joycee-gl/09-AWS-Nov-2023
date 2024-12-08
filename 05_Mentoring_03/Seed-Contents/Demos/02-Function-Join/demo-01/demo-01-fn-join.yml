@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Parameters:
+  InstanceType:
+    Description: Enter t2.micro or t2.small. Default is t2.micro.
+    Type: String
+    AllowedValues:
+      - t2.micro
+      - t2.small
+    Default: t2.micro
+  EnvironmentName:
+    Description: Enter 'dev' or 'staging' or 'prod' for the environemnt. Default is 'dev'.
+    Type: String
+    AllowedValues:
+      - dev
+      - staging
+      - prod
+    Default: dev
+
+Resources:
+  WebServerInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      # This corresponds to Amazon Linux 2023 AMI
+      ImageId: ami-022e1a32d3f742bd8
+      InstanceType: !Ref InstanceType
+      Tags:
+        - Key: Name
+          Value: !Join ['-', [!Ref EnvironmentName, 'ec2-web-server']]
+        - Key: JoinDemo
+          Value: !Join ['#', ['hello', 'world', 'join-fn-demo']]

@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Parameters:
+  InstanceType:
+    Description: Enter t2.micro or t2.small. Default is t2.micro.
+    Type: String
+    AllowedValues:
+      - t2.micro
+      - t2.small
+    Default: t2.micro
+
+Resources:
+  WebServerInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      # This corresponds to Amazon Linux 2023 AMI
+      ImageId: ami-022e1a32d3f742bd8
+      InstanceType: !Ref InstanceType
+      Tags:
+        - Key: Name
+          Value: WebServerInstance
+

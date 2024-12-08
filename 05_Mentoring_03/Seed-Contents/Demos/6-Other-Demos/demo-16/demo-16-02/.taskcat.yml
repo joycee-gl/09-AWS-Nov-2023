@@ -1,0 +1,13 @@
+project:
+  name: taskcat-demo-02
+  regions:
+    - us-east-1
+tests:
+  ec2-create-test:
+    parameters:
+      InstanceType: t2.micro
+    template: ./ec2-create.yml
+  intrinsic-functions-test:
+    parameters:
+      InstanceType: t2.micro
+    template: ./intrinsic-functions-demo.yml

@@ -1,0 +1,7 @@
+project:
+  name: taskcat-demo-01
+  regions:
+    - us-east-1
+tests:
+  sqs-test:
+    template: ./sqs.yml

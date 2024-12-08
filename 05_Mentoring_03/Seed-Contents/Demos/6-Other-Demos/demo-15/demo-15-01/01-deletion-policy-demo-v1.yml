@@ -1,0 +1,18 @@
+
+AWSTemplateFormatVersion: 2010-09-09
+  
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: test-user-bucket-01-mar-2024
+
+  NewVolume:
+    Type: AWS::EC2::Volume
+    Properties: 
+      Size: 100
+      Encrypted: true
+      AvailabilityZone: 'us-east-1a'
+      Tags:
+        - Key: Name
+          Value: My-EBS-01

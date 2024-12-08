@@ -1,0 +1,17 @@
+Parameters:
+  InstanceType:
+    Description: Instance type for EC2
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /gl-lab/cf/ec2-instance-type
+    
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      ImageId: ami-022e1a32d3f742bd8
+      Tags:
+        - Key: "Name"
+          Value: "EC2-Instance-SSM-Parameter"
+
+

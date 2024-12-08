@@ -1,0 +1,61 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "MyEC2Instance": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "InstanceType": "t2.micro",
+        "SecurityGroups": [
+          {
+            "Ref": "EC2InstanceSecurityGroup"
+          }
+        ],
+        "ImageId": "ami-00beae93a2d981137",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "EC2-Instance-01"
+          }
+        ]
+      }
+    },
+    "EC2InstanceSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Enable SSH access via port 22",
+        "GroupName": "SSH-Open",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "SSH-Open"
+          }
+        ],
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "CidrIp": "0.0.0.0/0" 
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "InstanceId": {
+      "Description": "InstanceId of the newly created EC2 instance",
+      "Value": {
+        "Ref": "MyEC2Instance"
+      }
+    },
+    "PublicIP": {
+      "Description": "Public IP address of the newly created EC2 instance",
+      "Value": {
+        "Fn::GetAtt": [
+          "MyEC2Instance",
+          "PublicIp"
+        ]
+      }
+    }
+  }
+}
