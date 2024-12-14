@@ -1,0 +1,60 @@
+VPC
+	IPv4 CIDR - 
+	First IP - 
+	Last IP - 
+	Total Hosts - 
+
+Subnets
+
+	Subnet [1]
+		AZ - 
+		IPv4 CIDR - 
+		First IP - 
+		Last IP - 
+		Total Hosts - 
+		
+	Subnet [2]
+		AZ - 
+		IPv4 CIDR - 
+		First IP - 
+		Last IP - 
+		Total Hosts - 
+	
+	Subnet [3]
+		AZ - 
+		IPv4 CIDR - 
+		First IP - 
+		Last IP - 
+		Total Hosts - 
+		
+	Subnet [4]
+		AZ - 
+		IPv4 CIDR - 
+		First IP - 
+		Last IP - 
+		Total Hosts - 
+	
+	Subnet [5]
+		AZ - 
+		IPv4 CIDR - 
+		First IP - 
+		Last IP - 
+		Total Hosts - 
+		
+	Subnet [6]
+		AZ - 
+		IPv4 CIDR - 
+		First IP - 
+		Last IP - 
+		Total Hosts - 
+	
+	Subnet [7] - New Subnet
+		AZ - 
+		IPv4 CIDR - 
+		First IP - 
+		Last IP - 
+		Total Hosts - 	
+
+
+
+	
